@@ -14,6 +14,7 @@ dialogue_act_recognition/
 ├── pipeline/               # Training and evaluation pipeline
 ├── saved_models/           # Saved models and label encoders
 ├── utils/                  # Helpers and data utilities
+├── results/                # Results of the project
 ├── main.py                 # CLI entry point for training
 ├── predict.py              # CLI tool to load saved model and evaluate
 ├── requirements.txt
