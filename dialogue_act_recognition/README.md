@@ -30,12 +30,6 @@ Install all required packages with:
 ```bash
 pip install -r requirements.txt
 ```
-
-> If you're using speech features, also install:
-```bash
-pip install praat-parselmouth
-```
-
 ---
 
 ## Dataset Format
