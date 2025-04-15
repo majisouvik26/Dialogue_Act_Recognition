@@ -3,7 +3,7 @@ from features.speech_features import extract_features_from_directory
 from models.xgboost_model import train_xgboost
 from models.deep_model import train_deep_model
 from data.loader import load_labels, load_transcripts
-
+from sklearn.preprocessing import LabelEncoder
 import pandas as pd
 
 def run_pipeline(feature_type='both', model_type='xgb', 
@@ -35,9 +35,13 @@ def run_pipeline(feature_type='both', model_type='xgb',
     X.drop(columns=['filename', 'label'], inplace=True)
 
     if model_type == 'xgb':
-        model, acc, report = train_xgboost(X, y)
+        label_encoder = LabelEncoder()
+        y_encoded = label_encoder.fit_transform(y)
+        model, acc, report = train_xgboost(X, y_encoded)
     elif model_type == 'deep':
-        model, acc, report = train_deep_model(X.values, y.values)
+        label_encoder = LabelEncoder()
+        y_encoded = label_encoder.fit_transform(y)
+        model, acc, report = train_deep_model(X.values, y_encoded)
     else:
         raise ValueError("Unsupported model_type. Choose 'xgb' or 'deep'.")
 

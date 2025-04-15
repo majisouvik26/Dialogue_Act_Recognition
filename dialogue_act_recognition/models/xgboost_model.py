@@ -7,6 +7,8 @@ def train_xgboost(X, y, test_size=0.2, random_state=42):
 
     model = xgb.XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
     model.fit(X_train, y_train)
+    model.save_model("saved_models/xgb_model.json")
+
 
     y_pred = model.predict(X_test)
     acc = accuracy_score(y_test, y_pred)

@@ -22,6 +22,7 @@ def train_deep_model(X, y, test_size=0.2, random_state=42, epochs=20, batch_size
     model = build_model(X.shape[1], num_classes)
 
     model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size, validation_split=0.1, verbose=1)
+    model.save("saved_models/deep_model.h5")
     
     y_pred = np.argmax(model.predict(X_test), axis=1)
     acc = accuracy_score(y_test, y_pred)
