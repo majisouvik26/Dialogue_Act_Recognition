@@ -1,0 +1,25 @@
+{
+    "data_dir": "./data",
+    "dataset": "switchboard",
+    "text_field": "Text",
+    "label_field": "DamslActTag",
+    "max_len": 256,
+    "batch_size": 64,
+    "num_workers": 4,
+    "model_name": "roberta-base",
+    "hidden_size": 768,
+    "num_classes": 43,
+    "save_dir": "./",
+    "project": "dialogue-act-classification",
+    "run_name": "context-aware-attention-dac",
+    "lr": 1e-5,
+    "monitor": "val_accuracy",
+    "min_delta": 0.001,
+    "filepath": "./checkpoints/{epoch}-{val_accuracy:4f}",
+    "precision": 32,
+    "average": "micro",
+    "epochs": 100,
+    "device": "cuda",
+    "restart": false
+}
+
