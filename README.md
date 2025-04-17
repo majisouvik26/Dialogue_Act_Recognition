@@ -100,33 +100,62 @@ python demo.py --audio path/to/audio.wav
 ## Directory Structure
 
 ```
-dialogue_act_recognition/
-├── README.md
-├── LICENSE
-└── exps/
-    ├── context_aware_self_attention/
-    │   ├── config.json
-    │   ├── main.py
-    │   └── ...
-    ├── dialogue_act_recognition/
-    │   ├── README.md
-    │   ├── train_pipeline.py
-    │   ├── predict.py
-    │   ├── data/
-    │   ├── features/
-    │   ├── models/
-    │   ├── pipeline/
-    │   ├── results/
-    │   ├── saved_models/
-    │   └── utils/
-    ├── fourier/
-    │   ├── dataset.py
-    │   ├── fnet_model.py
-    │   └── train.py
-    ├── gen_ai/
-    │   └── gen_ai_summarization_speech.ipynb
-    └── speech_to_text/
-        └── demo.py
+Directory structure:
+└── majisouvik26-dialogue_act_recognition.git/
+    ├── README.md
+    ├── LICENSE
+    └── exps/
+        ├── context_aware_self_attention/
+        │   ├── config.json
+        │   ├── main.py
+        │   ├── trainer.py
+        │   ├── data/
+        │   │   └── dataset.py
+        │   └── models/
+        │       ├── ContextAwareAttention.py
+        │       ├── ContextAwareDAC.py
+        │       ├── ConversationRNN.py
+        │       └── UtteranceRNN.py
+        ├── dialogue_act_recognition/
+        │   ├── README.md
+        │   ├── main.py
+        │   ├── predict.py
+        │   ├── requirements.txt
+        │   ├── data/
+        │   │   ├── __init__.py
+        │   │   ├── labels.csv
+        │   │   ├── loader.py
+        │   │   └── transcripts.csv
+        │   ├── features/
+        │   │   ├── __init__.py
+        │   │   ├── speech_features.py
+        │   │   └── text_features.py
+        │   ├── models/
+        │   │   ├── __init__.py
+        │   │   ├── deep_model.py
+        │   │   └── xgboost_model.py
+        │   ├── pipeline/
+        │   │   ├── __init__.py
+        │   │   ├── evaluate.py
+        │   │   └── train_pipeline.py
+        │   ├── results/
+        │   │   ├── deep_results.txt
+        │   │   └── xgboost_results.txt
+        │   ├── saved_models/
+        │   │   ├── deep_model.h5
+        │   │   └── xgb_model.json
+        │   └── utils/
+        │       ├── __init__.py
+        │       └── helpers.py
+        ├── fourier/
+        │   ├── dataset.py
+        │   ├── fnet_model.py
+        │   └── train.py
+        ├── gen_ai/
+        │   └── gen_ai_summarization_speech.ipynb
+        └── speech_to_text/
+            └── demo.py
+
 ```
 
 ## License
