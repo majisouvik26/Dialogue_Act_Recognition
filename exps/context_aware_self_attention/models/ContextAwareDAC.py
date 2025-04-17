@@ -4,12 +4,9 @@ from .UtteranceRNN import UtteranceRNN
 from .ConversationRNN import ConversationRNN
 from .ContextAwareAttention import ContextAwareAttention
 
-
-
 class ContextAwareDAC(nn.Module):
     
     def __init__(self, model_name="roberta-base", hidden_size=768, num_classes=18, device=torch.device("cpu")):
-        
         super(ContextAwareDAC, self).__init__()
         
         self.in_features = 2*hidden_size
@@ -45,11 +42,7 @@ class ContextAwareDAC(nn.Module):
             m = self.context_aware_attention(hidden_states=x, h_forward=hx[0].detach())
             hx = self.conversation_rnn(input_=m, hx=hx.detach())
             features = torch.cat((features, hx.view(1, -1)), dim=0)
-            
-        
         self.hx = hx.detach()
-        
         logits = self.classifier(features)
-        
         return logits
           
